@@ -19,7 +19,7 @@ function play(event) {
 
   if(inputNumber === drawnNumber) {
     inputElement.value = 0
-    document.querySelector("h2").innerText = `Acertou em ${attempts} tentativas!`
+    document.querySelector("h2").innerText = `Acertou! Foram ${attempts} tentativas.`
     screen1.classList.toggle("hide")
     screen2.classList.toggle("hide")
     return 

@@ -108,7 +108,7 @@ h2 {
   display: none;
 }
 
-.wrong-answer {
+.error-answer {
   color: #ce4d4d;
   font-weight: 700;
   animation: appear 0.4s 0.2s backwards;

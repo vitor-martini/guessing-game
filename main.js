@@ -4,10 +4,18 @@ const btnPlay = document.querySelector("#btnPlay")
 const btnPlayAgain = document.querySelector("#btnPlayAgain")
 const screen1 = document.querySelector(".screen1")
 const screen2 = document.querySelector(".screen2")
-const wrongMessage = document.querySelector("#wrong-message")
-
+const errorMessage = document.querySelector("#error-message")
 let drawnNumber = drawNewNumber() 
 let attempts = 1
+
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Enter" && screen1.classList.contains("hide")){
+    playAgain()
+  }
+})
+inputElement.addEventListener("input", validateInput)
+btnPlay.addEventListener("click", play)
+btnPlayAgain.addEventListener("click", playAgain)
 
 function drawNewNumber() {
   return Math.round(Math.random() * 10, 0)
@@ -20,25 +28,31 @@ function play(event) {
   if(inputNumber === drawnNumber) {
     inputElement.value = 0
     document.querySelector("h2").innerText = `Acertou! Foram ${attempts} tentativas.`
-    screen1.classList.toggle("hide")
-    screen2.classList.toggle("hide")
+    toggleScreen()
     return 
   } 
 
   attempts++      
-  wrongMessage.classList.remove("wrong-answer");
-  void wrongMessage.offsetWidth;
-  wrongMessage.classList.add("wrong-answer");
-  wrongMessage.classList.remove("hide");
+  showErrorMessage()
 }
 
-function playAgain(event) {
-  event.preventDefault()
+function showErrorMessage() {
+  errorMessage.classList.remove("error-answer");
+  void errorMessage.offsetWidth;
+  errorMessage.classList.add("error-answer");
+  errorMessage.classList.remove("hide");
+}
+
+function playAgain() {
   drawnNumber = drawNewNumber()
   attempts = 1
+  errorMessage.classList.add("hide")
+  toggleScreen()
+}
+
+function toggleScreen() {
   screen1.classList.toggle("hide")
   screen2.classList.toggle("hide")
-  wrongMessage.classList.add("hide")
 }
 
 function validateInput() {
@@ -49,7 +63,3 @@ function validateInput() {
     inputElement.value = 10
   }
 }
-
-inputElement.addEventListener("input", validateInput)
-btnPlay.addEventListener("click", play)
-btnPlayAgain.addEventListener("click", playAgain)

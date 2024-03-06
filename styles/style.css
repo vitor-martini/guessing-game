@@ -1,0 +1,121 @@
+:root {
+  --color-white: #fff;
+  --color-purple: #7879f1;
+  --color-hover-purple: #6565ca;
+  --color-grey: #dce2e9;
+  --color-dark-purple: #34355b;
+  --bg-blue: linear-gradient(275deg, #c2e9fb, #a1c4fd);
+
+  color: var(--color-dark-purple);
+}
+
+body {
+  background: var(--bg-blue);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+body,
+button,
+input {
+  font-family: "Montserrat", sans-serif;
+}
+
+main {
+  background: var(--color-white);
+  width: min(48rem, 90%);
+  margin-bottom: 12rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.8rem;
+}
+
+h1 {
+  padding: 4.8rem 6.4rem 1.6rem;
+  font-weight: 600;
+  font-size: 2.4rem;
+}
+
+p {
+  padding: 0 6.4rem 4.8rem;
+  font-size: 1.6rem;
+  opacity: 0.8;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 6.4rem;
+}
+
+input,
+button {
+  padding: 1.6rem;
+  font-size: 1.6rem;
+  border: none;
+}
+
+input {
+  background-color: var(--color-grey);
+  width: 8rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+button {
+  color: var(--color-white);
+  background-color: var(--color-purple);
+  font-weight: 700;
+  border-radius: 0 0.5rem 0.5rem 0;
+  transition: background 0.3s;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--color-hover-purple);
+}
+
+.screen1,
+.screen2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen2 button {
+  border-radius: 0.5rem;
+  margin: 3.2rem 0 6.4rem;
+}
+
+h2 {
+  padding: 4.8rem 6.4rem 1.6rem;
+  font-weight: normal;
+  font-size: 2.4rem;
+}
+
+.hide {
+  display: none;
+}
+
+.wrong-answer {
+  color: #ce4d4d;
+  font-weight: 700;
+  animation: appear 0.4s 0.2s backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
